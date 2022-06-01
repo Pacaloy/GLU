@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ProductPage from './pages/ProductPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Logout from './pages/Logout';
 import ErrorPage from './pages/ErrorPage';
 import { Container } from 'react-bootstrap';
 import { useState } from 'react';
@@ -30,6 +31,7 @@ function App() {
                         <Route path="/products" element={<ProductPage />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
+                        <Route path="/logout" element={<Logout />} />
                         <Route path="*" element={<ErrorPage />} />
                     </Routes>
                 </Container>
