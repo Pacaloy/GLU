@@ -1,7 +1,11 @@
+import { useState, useContext } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import UserContext from './../UserContext';
 
 export default function AppNavBar() {
+	const { user } = useContext(UserContext);
+
 	return (
 		<Navbar bg="dark" variant="dark" expand="lg">
 			<Navbar.Brand as={Link} to="/">GLU</Navbar.Brand>
@@ -10,8 +14,15 @@ export default function AppNavBar() {
 				<Nav>
 					<Nav.Link as={Link} to="/">Home</Nav.Link>
 					<Nav.Link as={Link} to="/products">Products</Nav.Link>
-					<Nav.Link as={Link} to="/login">Login</Nav.Link>
-					<Nav.Link as={Link} to="/register">Register</Nav.Link>
+
+					{(user.accessToken !== null) ?
+						<Nav.Link as={Link} to="/logout">Logout</Nav.Link>
+						:
+						<>
+							<Nav.Link as={Link} to="/login">Login</Nav.Link>
+							<Nav.Link as={Link} to="/register">Register</Nav.Link>
+						</>
+					}
 				</Nav>
 			</Navbar.Collapse>
 		</Navbar>

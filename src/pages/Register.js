@@ -1,39 +1,108 @@
+import { useContext, useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
+import { Navigate, useNavigate } from 'react-router-dom';
+import Swal from 'sweetalert2';
+import UserContext from './../UserContext';
 
 export default function Register() {
+	const { user } = useContext(UserContext);
+
+	const [email, setEmail] = useState('');
+	const [password, setPassword] = useState('');
+	const [verifyPassword, setVerifyPassword] = useState('');
+
+	const [isActive, setIsActive] = useState(false);
+
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		if ((email !== '' && password !== '' && verifyPassword !== '') && (password === verifyPassword)) {
+			setIsActive(true);
+		} else {
+			setIsActive(false);
+		}
+	}, [email, password, verifyPassword]);
+
+	function registerUser(e) {
+		e.preventDefault();
+
+		fetch('http://localhost:4000/users/register', {
+			method: 'POST',
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({
+				email: email,
+				password: password
+			})
+		})
+		.then(res => res.json())
+		.then(data => {
+			console.log(data)
+			if (data) {
+				Swal.fire({
+					title: 'Registration Successful',
+					icon: 'success',
+					text: 'You have successfully registered'
+				});
+
+				navigate('/login');
+			} else {
+				Swal.fire({
+					title: 'Registration Failed',
+					icon: 'error',
+					text: 'Please try again'
+				});
+			}
+		});
+	};
+
 	return (
-		<Form>
-			<h1>Register</h1>
-			<Form.Group>
-				<Form.Label>Email:</Form.Label>
-				<Form.Control 
-					type="email"
-					placeholder="Enter your email"
-					required
-				/>
-			</Form.Group>
+		(user.accessToken !== null) ?
+			<Navigate to="/products" />
+			:
+			<Form onSubmit={e => registerUser(e)}>
+				<h1>Register</h1>
+				<Form.Group>
+					<Form.Label>Email:</Form.Label>
+					<Form.Control 
+						type="email"
+						placeholder="Enter your email"
+						required
+						value={email}
+						onChange={e => setEmail(e.target.value)}
+					/>
+				</Form.Group>
 
-			<Form.Group>
-				<Form.Label>Password:</Form.Label>
-				<Form.Control 
-					type="password"
-					placeholder="Enter your password"
-					required
-				/>
-			</Form.Group>
+				<Form.Group>
+					<Form.Label>Password:</Form.Label>
+					<Form.Control 
+						type="password"
+						placeholder="Enter your password"
+						required
+						value={password}
+						onChange={e => setPassword(e.target.value)}
+					/>
+				</Form.Group>
 
-			<Form.Group>
-				<Form.Label>Verify Password:</Form.Label>
-				<Form.Control 
-					type="password"
-					placeholder="Verify your password"
-					required
-				/>
-			</Form.Group>
+				<Form.Group>
+					<Form.Label>Verify Password:</Form.Label>
+					<Form.Control 
+						type="password"
+						placeholder="Verify your password"
+						required
+						value={verifyPassword}
+						onChange={e => setVerifyPassword(e.target.value)}
+					/>
+				</Form.Group>
 
-			<div className="d-grid">
-			<Button variant="dark">Submit</Button>
-			</div>
-		</Form>
+				{isActive ?
+					<div className="d-grid">
+						<Button variant="dark" type="submit">Submit</Button>
+					</div>
+					:
+					<div className="d-grid">
+						<Button variant="dark" type="submit" disabled>Submit</Button>
+					</div>
+				}
+			</Form>
 	);
 };
