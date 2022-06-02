@@ -6,10 +6,10 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Logout from './pages/Logout';
 import ErrorPage from './pages/ErrorPage';
-import { Container } from 'react-bootstrap';
 import { useState } from 'react';
-import { UserProvider } from './UserContext';
+import { Container } from 'react-bootstrap';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { UserProvider } from './UserContext';
 
 function App() {
     const [user, setUser] = useState({

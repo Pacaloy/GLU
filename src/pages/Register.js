@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import { Navigate, useNavigate } from 'react-router-dom';
-import Swal from 'sweetalert2';
 import UserContext from './../UserContext';
+import Swal from 'sweetalert2';
 
 export default function Register() {
 	const { user } = useContext(UserContext);
@@ -36,7 +36,7 @@ export default function Register() {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data)
+			console.log(data);
 			if (data) {
 				Swal.fire({
 					title: 'Registration Successful',

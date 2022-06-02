@@ -1,8 +1,8 @@
 import { useState, useEffect, useContext } from 'react';
 import { Form, Button } from 'react-bootstrap';
-import Swal from 'sweetalert2';
-import UserContext from './../UserContext';
 import { Navigate, useNavigate } from 'react-router-dom';
+import UserContext from './../UserContext';
+import Swal from 'sweetalert2';
 
 export default function Login() {
 	const {user, setUser} = useContext(UserContext);
