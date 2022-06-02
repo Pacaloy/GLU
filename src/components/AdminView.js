@@ -27,7 +27,7 @@ export default function AdminView(props) {
 						<EditProduct product={product._id} fetchData={fetchData} />
 					</td>
 					<td>
-						<ArchiveProduct />
+						<ArchiveProduct product={product._id} isActive={product.isActive} fetchData={fetchData} />
 					</td>
 				</tr>
 			);
@@ -47,7 +47,7 @@ export default function AdminView(props) {
 						<th>DESCRIPTION</th>
 						<th>PRICE</th>
 						<th>AVAILABILITY</th>
-						<th colSpan={2}>ACTIONS</th>
+						<th colSpan={3}>ACTIONS</th>
 					</tr>
 				</thead>
 
