@@ -1,12 +1,14 @@
 import { useContext, useEffect, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import UserContext from './../UserContext';
+import Swal from 'sweetalert2';
 
 export default function SpecificProduct() {
 
 	const {productId} = useParams();
 	console.log(productId);
+	const navigate = useNavigate();
 
 	const {user} = useContext(UserContext);
 	console.log(user);
@@ -46,6 +48,22 @@ export default function SpecificProduct() {
 		.then(res => res.json())
 		.then(data => {
 			console.log(data)
+
+			if (data) {
+				Swal.fire({
+					title: 'Added',
+					icon: 'success',
+					text: 'Products successfully added to Cart'
+				});
+
+				navigate('/products');
+			} else {
+				Swal.fire({
+					title: 'Registration Failed',
+					icon: 'error',
+					text: 'Please try again'
+				});
+			}
 		});
 	};
 console.log(quantity)
