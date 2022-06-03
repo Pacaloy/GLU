@@ -2,6 +2,7 @@ import './App.css';
 import AppNavBar from './components/AppNavBar';
 import Home from './pages/Home';
 import ProductPage from './pages/ProductPage';
+import SpecificProduct from './pages/SpecificProduct';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Logout from './pages/Logout';
@@ -29,6 +30,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Home />} />
                         <Route path="/products" element={<ProductPage />} />
+                        <Route path="/products/:productId" element={<SpecificProduct />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/logout" element={<Logout />} />

@@ -6,11 +6,11 @@ import { Table } from 'react-bootstrap';
 export default function AdminView(props) {
 
 	console.log(props);
-	const { productsData, fetchData } = props;
+	const {productsData, fetchData} = props;
 	console.log(productsData);
 	console.log(fetchData);
 
-	const [ products, setProducts] = useState([]);
+	const [products, setProducts] = useState([]);
 
 	useEffect(() => {
 		const productsArr = productsData.map(product => {
@@ -32,6 +32,7 @@ export default function AdminView(props) {
 				</tr>
 			);
 		});
+		
 		setProducts(productsArr);
 	}, [productsData]);
 

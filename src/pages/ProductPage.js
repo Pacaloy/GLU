@@ -28,7 +28,7 @@ export default function ProductPage() {
 		{(user.isAdmin === true) ?
 			<AdminView productsData={allProducts} fetchData={fetchData} />
 			:
-			<UserView />
+			<UserView productsData={allProducts} />
 		}
 	</>
 	);
