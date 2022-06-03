@@ -74,9 +74,19 @@ console.log(typeof price)
 
 					<Form.Group>
 						<Form.Label>Total:</Form.Label>
+						<Form.Control 
+							type="number"
+							required
+							value={price * quantity}
+							disabled
+						/>
 					</Form.Group>
 
-					<Button type="submit">Add to Cart</Button>
+					{quantity > 0 ?
+						<Button type="submit">Add to Cart</Button>
+						:
+						<Button disabled>Add to Cart</Button>
+					}
 				</Form>
 			:
 			<>
