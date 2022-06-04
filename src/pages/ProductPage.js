@@ -1,6 +1,8 @@
 import AdminView from './../components/AdminView';
 import UserView from './../components/UserView';
 import { useContext, useEffect, useState } from 'react';
+import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import UserContext from './../UserContext';
 
 export default function ProductPage() {
@@ -28,7 +30,10 @@ export default function ProductPage() {
 		{(user.isAdmin === true) ?
 			<AdminView productsData={allProducts} fetchData={fetchData} />
 			:
-			<UserView productsData={allProducts} />
+			<>
+				<Button as={Link} to="/checkout">Checkout</Button>
+				<UserView productsData={allProducts} />
+			</>
 		}
 	</>
 	);

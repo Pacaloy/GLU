@@ -13,7 +13,7 @@ export default function ProductCard ({productProp}) {
 				<Card.Text>{productProp.description}</Card.Text>
 
 				<Card.Subtitle>Price:</Card.Subtitle>
-				<Card.Text>{productProp.price}</Card.Text>
+				<Card.Text>₱ {productProp.price}</Card.Text>
 
 				<Button as={Link} to={`/products/${productProp._id}`}>Details</Button>
 			</Card.Body>

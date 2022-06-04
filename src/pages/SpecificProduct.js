@@ -42,6 +42,8 @@ export default function SpecificProduct() {
 			},
 			body: JSON.stringify({
 				productId: productId,
+				productName: name,
+				productPrice: price,
 				quantity: quantity
 			})
 		})
@@ -53,7 +55,7 @@ export default function SpecificProduct() {
 				Swal.fire({
 					title: 'Added',
 					icon: 'success',
-					text: 'Products successfully added to Cart'
+					text: 'Successfully added to cart'
 				});
 
 				navigate('/products');
@@ -78,7 +80,7 @@ console.log(typeof price)
 				<Form onSubmit={e => addToCart(e, productId)}>
 					<h1>{name}</h1>
 					<p>{description}</p>
-					<h2>Price: {price}</h2>
+					<h2>Price: ₱ {price}</h2>
 					
 					<Form.Group>
 						<Form.Label>Quantity:</Form.Label>
