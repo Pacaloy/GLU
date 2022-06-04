@@ -32,6 +32,7 @@ export default function ProductPage() {
 			:
 			<>
 				<Button as={Link} to="/checkout">Checkout</Button>
+				<Button as={Link} to="/history">Order History</Button>
 				<UserView productsData={allProducts} />
 			</>
 		}

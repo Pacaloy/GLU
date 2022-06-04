@@ -1,3 +1,4 @@
+import AddProduct from './AddProduct'
 import EditProduct from './EditProduct';
 import ArchiveProduct from './ArchiveProduct';
 import { useEffect, useState } from 'react';
@@ -38,7 +39,10 @@ export default function AdminView(props) {
 
 	return (
 		<>
-			<h2>Admin Dashboard</h2>
+			<div>
+				<h2>Admin Dashboard</h2>
+				<AddProduct fetchData={fetchData} />
+			</div>
 
 			<Table striped bordered hover responsive>
 				<thead className="bg-dark text-white">

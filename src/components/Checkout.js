@@ -93,7 +93,7 @@ export default function Checkout({ordersData, fetchOrders}) {
 					text: 'Orders Paid'
 				})
 
-				navigate('/products');
+				navigate('/');
 			} else {
 				Swal.fire({
 					title: 'Something went wrong',

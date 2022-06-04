@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import ProductPage from './pages/ProductPage';
 import SpecificProduct from './pages/SpecificProduct';
 import CheckoutPage from './pages/CheckoutPage';
+import OrderHistoryPage from './pages/OrderHistoryPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import Logout from './pages/Logout';
@@ -33,6 +34,7 @@ function App() {
                         <Route path="/products" element={<ProductPage />} />
                         <Route path="/products/:productId" element={<SpecificProduct />} />
                         <Route path="/checkout" element={<CheckoutPage />} />
+                        <Route path="/history" element={<OrderHistoryPage />} />
                         <Route path="/login" element={<Login />} />
                         <Route path="/register" element={<Register />} />
                         <Route path="/logout" element={<Logout />} />

@@ -17,7 +17,7 @@ export default function SpecificProduct() {
 	const [description, setDescription] = useState('');
 	const [price, setPrice] = useState(0);
 
-	const [quantity, setQuantity] = useState(0);
+	const [quantity, setQuantity] = useState(1);
 
 	useEffect(() => {
 		fetch(`http://localhost:4000/products/${productId}`)

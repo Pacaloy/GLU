@@ -15,7 +15,8 @@ export default function UserView({productsData}) {
 				return null;
 			}
 		});
-
+console.log(typeof productsArr)
+console.log(typeof productsData)
 		setProducts(productsArr);
 	}, [productsData]);
 
