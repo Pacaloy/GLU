@@ -51,7 +51,7 @@ export default function Checkout({ordersData, fetchOrders}) {
 						<td>{order.products[0].productPrice}</td>
 						<td>{order.products[0].quantity}</td>
 						<td>{order.totalAmount}</td>
-						<td><Button onClick={() => deleteOrder(order._id)}>Remove</Button></td>
+						<td><Button variant="danger" onClick={() => deleteOrder(order._id)}>Remove</Button></td>
 					</tr>
 				);
 			}
