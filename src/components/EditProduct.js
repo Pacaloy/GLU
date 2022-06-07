@@ -10,8 +10,11 @@ export default function EditProduct({product, fetchData}) {
 	const [name, setName] = useState('');
 	const [description, setDescription] = useState('');
 	const [price, setPrice] = useState(0);
+	const [imageLink, setImageLink] = useState('');
+
 	console.log(product)
 	console.log(productId)
+
 	const openEdit = (productId)  => {
 		fetch(`http://localhost:4000/products/${productId}`)
 		.then(res => res.json())
@@ -22,6 +25,7 @@ export default function EditProduct({product, fetchData}) {
 			setName(data.name);
 			setDescription(data.description);
 			setPrice(data.price);
+			setImageLink(data.imageLink);
 		});
 		setShowEdit(true);
 	};
@@ -40,7 +44,8 @@ export default function EditProduct({product, fetchData}) {
 			body: JSON.stringify({
 				name: name,
 				description: description,
-				price: price
+				price: price,
+				imageLink: imageLink
 			})
 		})
 		.then(res => res.json())
@@ -71,7 +76,7 @@ export default function EditProduct({product, fetchData}) {
 
 	return (
 		<>
-			<Button onClick={() => openEdit(product)}>Edit</Button>
+			<Button className="mt-2 mb-3" variant="info" onClick={() => openEdit(product)}>Update</Button>
 
 			<Modal show={showEdit} onHide={closeEdit}>
 				<Form onSubmit={e => editProduct(e, productId)}>
@@ -99,6 +104,8 @@ export default function EditProduct({product, fetchData}) {
 								onChange={e => setDescription(e.target.value)}
 							/>
 						</Form.Group>
+
+						<Form.Group>
 							<Form.Label>Price</Form.Label>
 							<Form.Control 
 								type="number"
@@ -106,14 +113,22 @@ export default function EditProduct({product, fetchData}) {
 								value={price}
 								onChange={e => setPrice(e.target.value)}
 							/>
+						</Form.Group>
+
 						<Form.Group>
-							
+							<Form.Label>Image Link</Form.Label>
+							<Form.Control 
+								type="text"
+								required
+								value={imageLink}
+								onChange={e => setImageLink(e.target.value)}
+							/>
 						</Form.Group>
 					</Modal.Body>
 
 					<Modal.Footer>
-						<Button onClick={closeEdit}>Close</Button>
-						<Button type="submit">Save Changes</Button>
+						<Button variant="secondary" onClick={closeEdit}>Close</Button>
+						<Button variant="success" type="submit">Save Changes</Button>
 					</Modal.Footer>
 				</Form>
 			</Modal>

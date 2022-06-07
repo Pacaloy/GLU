@@ -24,10 +24,10 @@ export default function OrderHistoryCard ({historyProp}) {
 
 	return (
 		<>
-			<h1>User History</h1>
+			<h1 className="mt-5 text-white">User History</h1>
 
-			<Table striped bordered hover responsive>
-				<thead className="bg-dark text-white">
+			<Table striped bordered hover responsive variant="dark" size="sm" className="mb-5">
+				<thead className="text-info">
 					<tr>
 						<th>Order ID</th>
 						<th>Date Ordered</th>

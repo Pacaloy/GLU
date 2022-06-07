@@ -21,13 +21,12 @@ export default function AdminView(props) {
 					<td>{product.name}</td>
 					<td>{product.description}</td>
 					<td>{product.price}</td>
+					<td>{product.imageLink}</td>
 					<td className={product.isActive ? "text-success" : "text-danger"}>
 						{product.isActive ? "Available" : "Unavailable"}
 					</td>
 					<td>
 						<EditProduct product={product._id} fetchData={fetchData} />
-					</td>
-					<td>
 						<ArchiveProduct product={product._id} isActive={product.isActive} fetchData={fetchData} />
 					</td>
 				</tr>
@@ -40,19 +39,20 @@ export default function AdminView(props) {
 	return (
 		<>
 			<div>
-				<h2>Admin Dashboard</h2>
+				<h1 className="text-success">Admin Dashboard</h1>
 				<AddProduct fetchData={fetchData} />
 			</div>
 
-			<Table striped bordered hover responsive>
-				<thead className="bg-dark text-white">
+			<Table striped bordered hover responsive variant="dark" size="sm" className="mb-5">
+				<thead className="text-info">
 					<tr>
 						<th>ID</th>
 						<th>NAME</th>
 						<th>DESCRIPTION</th>
 						<th>PRICE</th>
+						<th>IMAGE LINK</th>
 						<th>AVAILABILITY</th>
-						<th colSpan={3}>ACTIONS</th>
+						<th colSpan={2}>ACTIONS</th>
 					</tr>
 				</thead>
 

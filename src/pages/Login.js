@@ -85,10 +85,10 @@ export default function Login() {
 			<Navigate to="/products" />
 			:
 			<>
-				<Form onSubmit={e => authentication(e)}>
-					<h1>Login</h1>
-					<Form.Group>
-						<Form.Label>Email Address</Form.Label>
+				<Form onSubmit={e => authentication(e)} className="text-white">
+					<h1 className="my-5">Login</h1>
+					<Form.Group className="mb-3">
+						<Form.Label>Email:</Form.Label>
 						<Form.Control 
 							type="email"
 							placeholder="Enter your email"
@@ -98,7 +98,7 @@ export default function Login() {
 						/>
 					</Form.Group>
 
-					<Form.Group>
+					<Form.Group className="mb-3">
 						<Form.Label>Password</Form.Label>
 						<Form.Control 
 							type="password"
@@ -110,14 +110,20 @@ export default function Login() {
 					</Form.Group>
 
 					{isActive ?
-						<Button variant="dark" type="submit">Submit</Button>
+						<div className="mb-5">
+							<Button variant="dark" type="submit">Submit</Button>
+						</div>
 						:
-						<Button variant="dark" type="submit" disabled>Submit</Button>	
+						<div className="mb-5">
+							<Button variant="dark" type="submit" disabled>Submit</Button>	
+						</div>
 					}
 				</Form>
 
-				<h4>Don't have and account?</h4>
-				<Button variant="dark" as={Link} to="/register">Register</Button>
+				<div className="mb-5">
+					<h4 className="text-white mb-3">Don't have an account?</h4>
+					<Button variant="dark" as={Link} to="/register">Register</Button>	
+				</div>
 			</>
 	);
 };

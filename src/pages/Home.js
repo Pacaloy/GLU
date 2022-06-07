@@ -1,5 +1,12 @@
+import Banner from './../components/Banner';
+import Slides from './../components/Slides';
+
 export default function Home() {
 	return (
-		<h1>Home Page</h1>
+		<>
+	   		<Banner />
+	   		<Slides />
+	    </>
+
 	);
 };

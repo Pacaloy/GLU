@@ -77,12 +77,12 @@ console.log(typeof price)
 			(user.isAdmin === true) ?
 				<Navigate to="/products" />
 				:
-				<Form onSubmit={e => addToCart(e, productId)}>
-					<h1>{name}</h1>
+				<Form className="text-white" onSubmit={e => addToCart(e, productId)}>
+					<h1 className="mt-5 text-success">{name}</h1>
 					<p>{description}</p>
-					<h2>Price: ₱ {price}</h2>
+					<h2 className="mt-5">Price: ₱ {price}</h2>
 					
-					<Form.Group>
+					<Form.Group className="mb-3">
 						<Form.Label>Quantity:</Form.Label>
 						<Form.Control 
 							type="number"
@@ -92,7 +92,7 @@ console.log(typeof price)
 						/>
 					</Form.Group>
 
-					<Form.Group>
+					<Form.Group className="mb-3">
 						<Form.Label>Total:</Form.Label>
 						<Form.Control 
 							type="number"
@@ -103,15 +103,83 @@ console.log(typeof price)
 					</Form.Group>
 
 					{quantity > 0 ?
-						<Button type="submit">Add to Cart</Button>
+						<>
+							<style type="text/css">
+							    {`
+							    	.btn-flat {
+							    		background-color: purple;
+							    		color: white;
+							    	}
+
+							    	.btn-xxl {
+							    		padding: 1rem 1.5rem;
+							    		font-size: 1.5rem;
+							    	}
+							    `}
+							</style>
+							<Button variant="flat" className="mb-5" type="submit">Add to Cart</Button>
+						</>
 						:
-						<Button disabled>Add to Cart</Button>
+						<>
+							<style type="text/css">
+							    {`
+							    	.btn-flat {
+							    		background-color: purple;
+							    		color: white;
+							    	}
+
+							    	.btn-xxl {
+							    		padding: 1rem 1.5rem;
+							    		font-size: 1.5rem;
+							    	}
+							    `}
+							</style>
+							<Button variant="flat" className="mb-5" disabled>Add to Cart</Button>
+						</>
 					}
 				</Form>
 			:
-			<>
-				<h1>Details</h1>
-				<Button as={Link} to="/login">Login to Order</Button>
-			</>
+			<Form className="text-white">
+				<h1 className="mt-5 text-success">{name}</h1>
+				<p>{description}</p>
+				<h2 className="mt-5">Price: ₱ {price}</h2>
+				
+				<Form.Group className="mb-3">
+					<Form.Label>Quantity:</Form.Label>
+					<Form.Control 
+						type="number"
+						required
+						value={quantity}
+						onChange={e => setQuantity(parseInt(e.target.value))}
+					/>
+				</Form.Group>
+
+				<Form.Group className="mb-3">
+					<Form.Label>Total:</Form.Label>
+					<Form.Control 
+						type="number"
+						required
+						value={price * quantity}
+						disabled
+					/>
+				</Form.Group>
+
+				<>
+					<style type="text/css">
+					    {`
+					    	.btn-flat {
+					    		background-color: purple;
+					    		color: white;
+					    	}
+
+					    	.btn-xxl {
+					    		padding: 1rem 1.5rem;
+					    		font-size: 1.5rem;
+					    	}
+					    `}
+					</style>
+					<Button variant="flat" className="mb-5" as={Link} to="/login">Login to Order</Button>
+				</>
+			</Form>
 	);
 };

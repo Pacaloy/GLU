@@ -59,9 +59,9 @@ export default function Register() {
 		(user.accessToken !== null) ?
 			<Navigate to="/products" />
 			:
-			<Form onSubmit={e => registerUser(e)}>
-				<h1>Register</h1>
-				<Form.Group>
+			<Form onSubmit={e => registerUser(e)} className="text-white">
+				<h1 className="my-5">Register</h1>
+				<Form.Group className="mb-3">
 					<Form.Label>Email:</Form.Label>
 					<Form.Control 
 						type="email"
@@ -72,7 +72,7 @@ export default function Register() {
 					/>
 				</Form.Group>
 
-				<Form.Group>
+				<Form.Group className="mb-3">
 					<Form.Label>Password:</Form.Label>
 					<Form.Control 
 						type="password"
@@ -83,7 +83,7 @@ export default function Register() {
 					/>
 				</Form.Group>
 
-				<Form.Group>
+				<Form.Group className="mb-3">
 					<Form.Label>Verify Password:</Form.Label>
 					<Form.Control 
 						type="password"
@@ -95,11 +95,11 @@ export default function Register() {
 				</Form.Group>
 
 				{isActive ?
-					<div className="d-grid">
+					<div className="mb-5">
 						<Button variant="dark" type="submit">Submit</Button>
 					</div>
 					:
-					<div className="d-grid">
+					<div className="mb-5">
 						<Button variant="dark" type="submit" disabled>Submit</Button>
 					</div>
 				}

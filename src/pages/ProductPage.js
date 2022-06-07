@@ -26,13 +26,22 @@ export default function ProductPage() {
 
 	return (
 	<>
-		<h1>Product Page</h1>
+		<h1 className="mt-5 text-white">Product Page</h1>
 		{(user.isAdmin === true) ?
 			<AdminView productsData={allProducts} fetchData={fetchData} />
 			:
 			<>
-				<Button as={Link} to="/checkout">Checkout</Button>
-				<Button as={Link} to="/history">Order History</Button>
+				{(user.accessToken !== null) ?
+					<>
+						<Button variant="success" as={Link} to="/checkout">Checkout</Button>
+						<Button className="mx-3" variant="success" as={Link} to="/history">Order History</Button>
+					</>
+					:
+					<>
+						<Button variant="success" disabled>Checkout</Button>
+						<Button className="mx-3" variant="success" disabled>Order History</Button>
+					</>
+				}
 				<UserView productsData={allProducts} />
 			</>
 		}

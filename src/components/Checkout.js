@@ -109,10 +109,10 @@ export default function Checkout({ordersData, fetchOrders}) {
 
 	return(
 		<>
-			<h2>Checkout Page</h2>
+			<h1 className="mt-5 text-white">Checkout Page</h1>
 
-			<Table striped bordered hover responsive>
-				<thead className="bg-dark text-white">
+			<Table striped bordered hover responsive variant="dark" size="sm" className="mb-5">
+				<thead className="text-info">
 					<tr>
 						<th>Name</th>
 						<th>Price</th>
@@ -129,11 +129,11 @@ export default function Checkout({ordersData, fetchOrders}) {
 				<tbody>
 					<tr>
 						{(totalSum > 0) ?
-							<th colSpan={3}><Button onClick={() => checkout()}>Checkout</Button></th>
+							<td className="d-grid"><Button variant="success" onClick={() => checkout()}>CHECKOUT</Button></td>
 							:
-							<th colSpan={3}><Button disabled>Checkout</Button></th>
+							<td className="d-grid"><Button variant="success" disabled>CHECKOUT</Button></td>
 						}
-						<th colSpan={2}>Total: ₱ {totalSum}</th>
+						<td colSpan={4}><h4>Total: ₱ {totalSum}</h4></td>
 					</tr>
 				</tbody>
 			</Table>

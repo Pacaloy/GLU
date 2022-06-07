@@ -2,4 +2,15 @@
   margin:  0;
   padding: 0;
   box-sizing:  border-box;
+  font-family: 'Titillium Web', sans-serif;
+  /*border: 1px solid red;*/
+}
+
+.productImage {
+  height: 500px;
+  width: 100%;
+}
+
+.cardHighlight {
+  min-height: 100%;
 }

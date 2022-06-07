@@ -30,11 +30,12 @@ export default function OrderHistoryPage() {
 	console.log(userHistory)
 
 	return (
-		(user.isAdmin) ?
-			<Navigate to="/products"/>
-			:
-			<>
+		(user.accessToken !== null) ?
+			(user.isAdmin) ?
+				<Navigate to="/products"/>
+				:
 				<OrderHistoryCard historyProp={userHistory} />
-			</>
+			:
+			<Navigate to="/" />
 	);
 };

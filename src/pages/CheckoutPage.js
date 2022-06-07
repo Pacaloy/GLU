@@ -28,9 +28,12 @@ export default function CheckoutPage() {
 console.log(user)
 
 	return (
-		(user.isAdmin) ?
-			<Navigate to="/products"/>
+		(user.accessToken !== null) ?
+			(user.isAdmin) ?
+				<Navigate to="/products" />
+				:
+				<Checkout ordersData={orders} fetchOrders={fetchOrders} />
 			:
-			<Checkout ordersData={orders} fetchOrders={fetchOrders} />
+			<Navigate to="/" />
 	);
 };

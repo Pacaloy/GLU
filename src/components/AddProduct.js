@@ -7,6 +7,7 @@ export default function AddProduct({fetchData}) {
 	const [name, setName] = useState('');
 	const [description, setDescription] = useState('');
 	const [price, setPrice] = useState(0);
+	const [imageLink, setImageLink] = useState('');
 
 	const [showAdd, setShowAdd] = useState(false);
 
@@ -25,7 +26,8 @@ export default function AddProduct({fetchData}) {
 			body: JSON.stringify({
 				name: name,
 				description: description,
-				price: price
+				price: price,
+				imageLink: imageLink
 			})
 		})
 		.then(res => res.json())
@@ -60,7 +62,7 @@ export default function AddProduct({fetchData}) {
 
 	return (
 		<>
-			<Button variant="primary" onClick={openAdd}>Add New Product</Button>
+			<Button variant="success" className="mt-5 mb-4" onClick={openAdd}>Add New Product</Button>
 
 			<Modal show={showAdd} onHide={closeAdd}>
 				<Form onSubmit={e => addProduct(e)}>
@@ -96,6 +98,16 @@ export default function AddProduct({fetchData}) {
 							      required
 							      value={price}
 							      onChange={e => setPrice(e.target.value)}
+							 />
+						</Form.Group>
+
+						<Form.Group>
+							<Form.Label>Image Link</Form.Label>
+							<Form.Control 
+							      type="text"
+							      required
+							      value={imageLink}
+							      onChange={e => setImageLink(e.target.value)}
 							 />
 						</Form.Group>
 					</Modal.Body>
