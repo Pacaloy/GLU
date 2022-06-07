@@ -3,6 +3,7 @@ import AppNavBar from './components/AppNavBar';
 import Home from './pages/Home';
 import ProductPage from './pages/ProductPage';
 import SpecificProduct from './pages/SpecificProduct';
+import Orders from './pages/Orders';
 import CheckoutPage from './pages/CheckoutPage';
 import OrderHistoryPage from './pages/OrderHistoryPage';
 import Login from './pages/Login';
@@ -34,6 +35,7 @@ function App() {
                         <Route path="/" element={<Home />} />
                         <Route path="/products" element={<ProductPage />} />
                         <Route path="/products/:productId" element={<SpecificProduct />} />
+                        <Route path="/orders" element={<Orders />} />
                         <Route path="/checkout" element={<CheckoutPage />} />
                         <Route path="/history" element={<OrderHistoryPage />} />
                         <Route path="/login" element={<Login />} />

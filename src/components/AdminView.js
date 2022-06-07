@@ -2,7 +2,8 @@ import AddProduct from './AddProduct'
 import EditProduct from './EditProduct';
 import ArchiveProduct from './ArchiveProduct';
 import { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Button, Table } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default function AdminView(props) {
 
@@ -41,6 +42,7 @@ export default function AdminView(props) {
 			<div>
 				<h1 className="text-success">Admin Dashboard</h1>
 				<AddProduct fetchData={fetchData} />
+				<Button variant="success" className="mt-5 mb-4 ms-4" as={Link} to="/orders">View Orders</Button>
 			</div>
 
 			<Table striped bordered hover responsive variant="dark" size="sm" className="mb-5">
