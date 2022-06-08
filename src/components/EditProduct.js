@@ -12,7 +12,7 @@ export default function EditProduct({product, fetchData}) {
 	const [showEdit, setShowEdit] = useState(false);
 
 	const openEdit = (productId)  => {
-		fetch(`http://localhost:4000/products/${productId}`)
+		fetch(`https://ecommerce-product-store.herokuapp.com/products/${productId}`)
 		.then(res => res.json())
 		.then(data => {
 			setProductId(data._id);
@@ -30,7 +30,7 @@ export default function EditProduct({product, fetchData}) {
 	const editProduct = (e, productId) => {
 		e.preventDefault();
 
-		fetch(`http://localhost:4000/products/${productId}`, {
+		fetch(`https://ecommerce-product-store.herokuapp.com/products/${productId}`, {
 			method: 'PUT',
 			headers: {
 				'Content-Type': 'application/json',

@@ -9,7 +9,7 @@ export default function CheckoutPage() {
 	const [orders, setOrders] = useState([]);
 
 	const fetchOrders = () => {
-		fetch('http://localhost:4000/orders/getOrders', {
+		fetch('https://ecommerce-product-store.herokuapp.com/orders/getOrders', {
 			headers: {
 				Authorization: `Bearer ${user.accessToken}`
 			}

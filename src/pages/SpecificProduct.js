@@ -18,7 +18,7 @@ export default function SpecificProduct() {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		fetch(`http://localhost:4000/products/${productId}`)
+		fetch(`https://ecommerce-product-store.herokuapp.com/products/${productId}`)
 		.then(res => res.json())
 		.then(data => {
 			setName(data.name);
@@ -30,7 +30,7 @@ export default function SpecificProduct() {
 	const addToCart = (e, productId) => {
 		e.preventDefault();
 
-		fetch('http://localhost:4000/orders/createOrder', {
+		fetch('https://ecommerce-product-store.herokuapp.com/orders/createOrder', {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

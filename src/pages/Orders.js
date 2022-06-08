@@ -9,7 +9,7 @@ export default function Orders() {
 	const [allOrders, setAllOrders] = useState([]);
 
 	const getAllOrders = () => {
-		fetch('http://localhost:4000/orders/getAllOrders', {
+		fetch('https://ecommerce-product-store.herokuapp.com/orders/getAllOrders', {
 			headers: {
 				Authorization: `Bearer ${user.accessToken}`
 			}
@@ -17,7 +17,7 @@ export default function Orders() {
 		.then(res => res.json())
 		.then(data => {
 			setAllOrders(data);
-		})
+    	});
 	};
 
 	useEffect(() => {
