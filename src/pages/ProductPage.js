@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 import UserContext from './../UserContext';
 
 export default function ProductPage() {
-
 	const { user } = useContext(UserContext);
 
 	const [ allProducts, setAllProducts ] = useState([]);
@@ -15,7 +14,6 @@ export default function ProductPage() {
 		fetch('http://localhost:4000/products/all')
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
 			setAllProducts(data);
 		});
 	};
@@ -27,6 +25,7 @@ export default function ProductPage() {
 	return (
 	<>
 		<h1 className="mt-5 text-white">Product Page</h1>
+		
 		{(user.isAdmin === true) ?
 			<AdminView productsData={allProducts} fetchData={fetchData} />
 			:

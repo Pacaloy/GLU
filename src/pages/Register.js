@@ -36,7 +36,6 @@ export default function Register() {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
 			if (data) {
 				Swal.fire({
 					title: 'Registration Successful',
@@ -61,6 +60,7 @@ export default function Register() {
 			:
 			<Form onSubmit={e => registerUser(e)} className="text-white">
 				<h1 className="my-5">Register</h1>
+				
 				<Form.Group className="mb-3">
 					<Form.Label>Email:</Form.Label>
 					<Form.Control 

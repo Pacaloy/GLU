@@ -4,7 +4,6 @@ import { Navigate } from 'react-router-dom';
 import UserContext from './../UserContext';
 
 export default function OrderHistoryPage() {
-
 	const { user } = useContext(UserContext);
 
 	const [userHistory, setUserHistory] = useState([])
@@ -17,8 +16,6 @@ export default function OrderHistoryPage() {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
-
 			setUserHistory(data);
 		});
 	};
@@ -26,8 +23,6 @@ export default function OrderHistoryPage() {
 	useEffect(() => {
 		orderHistory();
 	}, []);
-
-	console.log(userHistory)
 
 	return (
 		(user.accessToken !== null) ?

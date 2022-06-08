@@ -6,11 +6,7 @@ import { Button, Table } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export default function AdminView(props) {
-
-	console.log(props);
 	const {productsData, fetchData} = props;
-	console.log(productsData);
-	console.log(fetchData);
 
 	const [products, setProducts] = useState([]);
 

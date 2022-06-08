@@ -3,30 +3,25 @@ import { Button, Form, Modal } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
 export default function EditProduct({product, fetchData}) {
-
-	const [showEdit, setShowEdit] = useState(false);
-
 	const [productId, setProductId] = useState('');
 	const [name, setName] = useState('');
 	const [description, setDescription] = useState('');
 	const [price, setPrice] = useState(0);
 	const [imageLink, setImageLink] = useState('');
 
-	console.log(product)
-	console.log(productId)
+	const [showEdit, setShowEdit] = useState(false);
 
 	const openEdit = (productId)  => {
 		fetch(`http://localhost:4000/products/${productId}`)
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
-
 			setProductId(data._id);
 			setName(data.name);
 			setDescription(data.description);
 			setPrice(data.price);
 			setImageLink(data.imageLink);
 		});
+
 		setShowEdit(true);
 	};
 
@@ -50,8 +45,6 @@ export default function EditProduct({product, fetchData}) {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
-
 			if (data) {
 				Swal.fire({
 					title: 'Success',

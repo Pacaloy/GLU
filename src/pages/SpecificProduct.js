@@ -6,31 +6,27 @@ import Swal from 'sweetalert2';
 
 export default function SpecificProduct() {
 
-	const {productId} = useParams();
-	console.log(productId);
-	const navigate = useNavigate();
-
 	const {user} = useContext(UserContext);
-	console.log(user);
+
+	const {productId} = useParams();
 
 	const [name, setName] = useState('');
 	const [description, setDescription] = useState('');
 	const [price, setPrice] = useState(0);
-
 	const [quantity, setQuantity] = useState(1);
+
+	const navigate = useNavigate();
 
 	useEffect(() => {
 		fetch(`http://localhost:4000/products/${productId}`)
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
-
 			setName(data.name);
 			setDescription(data.description);
 			setPrice(data.price);
 		});
-	});
-
+	}, []);
+	
 	const addToCart = (e, productId) => {
 		e.preventDefault();
 
@@ -49,8 +45,6 @@ export default function SpecificProduct() {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data)
-
 			if (data) {
 				Swal.fire({
 					title: 'Added',
@@ -68,10 +62,7 @@ export default function SpecificProduct() {
 			}
 		});
 	};
-console.log(quantity)
-console.log(typeof quantity)
-console.log(price)
-console.log(typeof price)
+
 	return (
 		(user.accessToken !== null) ?
 			(user.isAdmin === true) ?

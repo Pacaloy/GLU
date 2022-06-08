@@ -46,27 +46,26 @@ export default function Footer() {
 						<h6>Ventures</h6>
 						<h6>Contact Us</h6>
 					</Col>
-
 				</Row>
 			</Container>
 
 			<Container className="my-4">
 				<Col className="text-center">
 					<a href="https://facebook.com" target="_blank">
-						<img className="mx-2" src="https://imgur.com/wD8g1sh.png" alt="facebook" title="facebook" />
+						<img className="mx-2" src="https://imgur.com/wD8g1sh.png" alt="facebook" title="Facebook" />
 					</a>
 
 					<a href="https://instagram.com" target="_blank">
-						<img className="mx-2" src="https://imgur.com/r0XiYuu.png" alt="instagram" title="instagram" />
+						<img className="mx-2" src="https://imgur.com/r0XiYuu.png" alt="instagram" title="Instagram" />
 					</a>
 
 					<a href="https://twitter.com" target="_blank">
-						<img className="mx-2" src="https://imgur.com/WLYY8bC.png" alt="twitter" title="twitter" />
+						<img className="mx-2" src="https://imgur.com/WLYY8bC.png" alt="twitter" title="Twitter" />
 					</a>
 				</Col>
 			</Container>
 
-			<h6 className="ms-auto text-center">Copyright @ 2022 Carlo Cruz All Rights Reserved</h6>
+			<h6 className="ms-auto text-center">Copyright @ 2022 Carlo Cruz. All rights reserved.</h6>
 		</div>
 	);
-}
+};

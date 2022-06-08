@@ -1,5 +1,5 @@
-import { useState, useEffect, useContext } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { useContext, useEffect, useState } from 'react';
+import { Button, Form } from 'react-bootstrap';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import UserContext from './../UserContext';
 import Swal from 'sweetalert2';
@@ -35,8 +35,6 @@ export default function Login() {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
-
 			if (data.accessToken !== undefined) {
 				localStorage.setItem('accessToken', data.accessToken);
 				setUser({
@@ -56,8 +54,6 @@ export default function Login() {
 				})
 				.then(res => res.json())
 				.then(data => {
-					console.log(data);
-
 					if (data.isAdmin === true) {
 						localStorage.setItem('isAdmin', data.isAdmin);
 
@@ -87,6 +83,7 @@ export default function Login() {
 			<>
 				<Form onSubmit={e => authentication(e)} className="text-white">
 					<h1 className="my-5">Login</h1>
+					
 					<Form.Group className="mb-3">
 						<Form.Label>Email:</Form.Label>
 						<Form.Control 

@@ -4,7 +4,6 @@ import { Navigate } from 'react-router-dom';
 import UserContext from './../UserContext';
 
 export default function Orders() {
-
 	const { user } = useContext(UserContext);
 
 	const [allOrders, setAllOrders] = useState([]);
@@ -17,7 +16,6 @@ export default function Orders() {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
 			setAllOrders(data);
 		})
 	};

@@ -3,7 +3,6 @@ import { Button, Form, Modal } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
 export default function AddProduct({fetchData}) {
-
 	const [name, setName] = useState('');
 	const [description, setDescription] = useState('');
 	const [price, setPrice] = useState(0);
@@ -32,24 +31,21 @@ export default function AddProduct({fetchData}) {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
-
 			if(data){
 				Swal.fire({
 					title: 'Success',
 					icon: 'success',
 					text: 'Product successfully added'
-				})
+				});
 
 				closeAdd()
-				
 				fetchData()
 			}else {
 				Swal.fire({
 					title: 'Error',
 					icon: 'error',
 					text: 'Please try again'
-				})
+				});
 
 				fetchData()
 			}
@@ -57,6 +53,7 @@ export default function AddProduct({fetchData}) {
 			setName('')
 			setDescription('')
 			setPrice(0)
+			setImageLink('')
 		});
 	};
 

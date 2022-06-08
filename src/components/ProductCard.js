@@ -2,8 +2,6 @@ import { Button, Card, Container, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export default function ProductCard ({productProp}) {
-	console.log(productProp)
-
 	return (
 		<Container className="my-5">
 			<Row>

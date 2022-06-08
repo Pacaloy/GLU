@@ -2,8 +2,6 @@ import { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 
 export default function OrderHistoryCard ({historyProp}) {
-	console.log(historyProp)
-
 	const [orderHistory, setOrderHistory] = useState([]);
 
 	useEffect(() => {
@@ -19,6 +17,7 @@ export default function OrderHistoryCard ({historyProp}) {
 				</tr>
 			);
 		});
+		
 		setOrderHistory(historyArr);
 	}, [historyProp]);
 

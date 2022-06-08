@@ -2,7 +2,6 @@ import { Button } from 'react-bootstrap';
 import Swal from 'sweetalert2';
 
 export default function ArchiveProduct({product, isActive, fetchData}) {
-
 	const archiveToggle = (productId) => {
 		fetch(`http://localhost:4000/products/${productId}/archive`, {
 			method: 'PUT',
@@ -12,14 +11,12 @@ export default function ArchiveProduct({product, isActive, fetchData}) {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
-
 			if(data) {
 				Swal.fire({
 					title: 'Success',
 					icon: 'success',
 					text: 'Product successfully disabled'
-				})
+				});
 
 				fetchData()
 			}else {
@@ -27,7 +24,7 @@ export default function ArchiveProduct({product, isActive, fetchData}) {
 					title: 'Error',
 					icon: 'error',
 					text: 'Something went wrong'
-				})
+				});
 
 				fetchData()
 			}
@@ -43,14 +40,12 @@ export default function ArchiveProduct({product, isActive, fetchData}) {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
-			
 			if(data) {
 				Swal.fire({
 					title: 'Success',
 					icon: 'success',
 					text: 'Product successfully enabled'
-				})
+				});
 
 				fetchData()
 			}else {
@@ -58,7 +53,7 @@ export default function ArchiveProduct({product, isActive, fetchData}) {
 					title: 'Error',
 					icon: 'error',
 					text: 'Something went wrong'
-				})
+				});
 
 				fetchData()
 			}

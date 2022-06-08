@@ -4,7 +4,6 @@ import { Navigate } from 'react-router-dom';
 import UserContext from './../UserContext';
 
 export default function CheckoutPage() {
-
 	const { user } = useContext(UserContext);
 
 	const [orders, setOrders] = useState([]);
@@ -17,7 +16,6 @@ export default function CheckoutPage() {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
 			setOrders(data);
 		});
 	};
@@ -25,7 +23,6 @@ export default function CheckoutPage() {
 	useEffect(() => {
 		fetchOrders();
 	}, []);
-console.log(user)
 
 	return (
 		(user.accessToken !== null) ?

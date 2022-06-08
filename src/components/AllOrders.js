@@ -2,9 +2,6 @@ import { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 
 export default function AllOrders({orderProp}) {
-
-	console.log(orderProp)
-
 	const [orderList, setOrderList] = useState([]);
 
 	useEffect(() => {
@@ -22,6 +19,7 @@ export default function AllOrders({orderProp}) {
 				</tr>
 			);
 		});
+		
 		setOrderList(ordersArr);
 	}, [orderProp]);
 

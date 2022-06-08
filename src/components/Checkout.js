@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 export default function Checkout({ordersData, fetchOrders}) {
-
 	const [orders, setOrders] = useState([]);
 
 	const navigate = useNavigate();
@@ -18,14 +17,12 @@ export default function Checkout({ordersData, fetchOrders}) {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
-
 			if (data) {
 				Swal.fire({
 					title: 'Success',
 					icon: 'success',
 					text: 'Order removed'
-				})
+				});
 
 				fetchOrders();
 			} else {
@@ -33,7 +30,7 @@ export default function Checkout({ordersData, fetchOrders}) {
 					title: 'Error',
 					icon: 'error',
 					text: 'Something went wrong'
-				})
+				});
 
 				fetchOrders();
 			}
@@ -60,9 +57,6 @@ export default function Checkout({ordersData, fetchOrders}) {
 		setOrders(ordersArr);
 	}, [ordersData]);
 
-	console.log(ordersData)
-
-
 	let totalSum = 0;
 
 	ordersData.forEach(order => {
@@ -73,8 +67,6 @@ export default function Checkout({ordersData, fetchOrders}) {
 		}
 	});
 
-	console.log(totalSum)
-
 	const checkout = () => {
 		fetch('http://localhost:4000/orders/checkout', {
 			method: 'PUT',
@@ -84,14 +76,12 @@ export default function Checkout({ordersData, fetchOrders}) {
 		})
 		.then(res => res.json())
 		.then(data => {
-			console.log(data);
-
 			if (data) {
 				Swal.fire({
 					title: 'Success',
 					icon: 'success',
 					text: 'Orders Paid'
-				})
+				});
 
 				navigate('/');
 			} else {
@@ -99,13 +89,12 @@ export default function Checkout({ordersData, fetchOrders}) {
 					title: 'Something went wrong',
 					icon: 'error',
 					text: 'Please try again'
-				})
+				});
 
 				navigate('/products');
 			}
 		});
 	};
-
 
 	return(
 		<>
