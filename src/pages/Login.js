@@ -61,7 +61,7 @@ export default function Login() {
 							isAdmin: data.isAdmin
 						});
 
-						navigate('/products');
+						navigate('/');
 					} else {
 						navigate('/');
 					}
