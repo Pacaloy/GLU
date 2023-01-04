@@ -11,7 +11,7 @@ export default function ProductPage() {
 	const [ allProducts, setAllProducts ] = useState([]);
 
 	const fetchData = () => {
-		fetch('https://ecommerce-product-store.herokuapp.com/products/all')
+		fetch('http://localhost:4000/products/all')
 		.then(res => res.json())
 		.then(data => {
 			setAllProducts(data);

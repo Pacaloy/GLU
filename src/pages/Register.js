@@ -26,7 +26,7 @@ export default function Register() {
 	function registerUser(e) {
 		e.preventDefault();
 
-		fetch('https://ecommerce-product-store.herokuapp.com/users/register', {
+		fetch('http://localhost:4000/users/register', {
 			method: 'POST',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({

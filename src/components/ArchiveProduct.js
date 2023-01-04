@@ -3,7 +3,7 @@ import Swal from 'sweetalert2';
 
 export default function ArchiveProduct({product, isActive, fetchData}) {
 	const archiveToggle = (productId) => {
-		fetch(`https://ecommerce-product-store.herokuapp.com/products/${productId}/archive`, {
+		fetch(`http://localhost:4000/products/${productId}/archive`, {
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -32,7 +32,7 @@ export default function ArchiveProduct({product, isActive, fetchData}) {
 	};
 
 	const activateToggle = (productId) => {
-		fetch(`https://ecommerce-product-store.herokuapp.com/products/${productId}/activate`, {
+		fetch(`http://localhost:4000/products/${productId}/activate`, {
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`
