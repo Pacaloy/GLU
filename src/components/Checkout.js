@@ -9,7 +9,7 @@ export default function Checkout({ordersData, fetchOrders}) {
 	const navigate = useNavigate();
 
 	const deleteOrder = (orderId) => {
-		fetch(`https://ecommerce-product-store.herokuapp.com/orders/${orderId}`, {
+		fetch(`${process.env.REACT_APP_URL}orders/${orderId}`, {
 			method: 'DELETE',
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -68,7 +68,7 @@ export default function Checkout({ordersData, fetchOrders}) {
 	});
 
 	const checkout = () => {
-		fetch('https://ecommerce-product-store.herokuapp.com/orders/checkout', {
+		fetch(`${process.env.REACT_APP_URL}orders/checkout`, {
 			method: 'PUT',
 			headers: {
 				Authorization: `Bearer ${localStorage.getItem('accessToken')}`

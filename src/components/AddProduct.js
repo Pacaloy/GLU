@@ -16,7 +16,7 @@ export default function AddProduct({fetchData}) {
 	const addProduct = (e) => {
 		e.preventDefault();
 
-		fetch('https://ecommerce-product-store.herokuapp.com/products/add', {
+		fetch(`${process.env.REACT_APP_URL}products/add`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',

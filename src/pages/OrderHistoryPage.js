@@ -9,7 +9,7 @@ export default function OrderHistoryPage() {
 	const [userHistory, setUserHistory] = useState([])
 
 	const orderHistory = () => {
-		fetch('https://ecommerce-product-store.herokuapp.com/orders/history', {
+		fetch(`${process.env.REACT_APP_URL}orders/history`, {
 			headers: {
 				Authorization: `Bearer ${user.accessToken}`
 			}
